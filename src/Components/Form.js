@@ -35,26 +35,18 @@ function Form (){
     
     const formik = useFormik({
         initialValues: {
-            id: nanoid(2),
+            //id: nanoid(2),
             name: '',
             email: '',
             subject: '',
             message: '',
         }, validate,  
-        onSubmit: (values, {resetForm}) => {
-            postData(values);
-            if(submission){
-               resetForm();
-           }
-            /*setTimeout(() => {
-                postData(values);
-                if(submission == true){
-                    resetForm();
-                }
-                setSubmitting(false);
-            }, 2000)*/
+        onSubmit: (values) => {
+            const id = nanoid(2);
+            const valuesId = {id,...values}; 
+            postData(valuesId);
            
-          },
+        },
     });
 
 
@@ -69,11 +61,13 @@ function postData(valores){
     .then((response) => response.json())
 
     .then((post) => {
+        setSubmission(true);
+        console.log(submission);
         setPosts((posts) => [post, ...posts]);
         console.log(post); //post actual
         console.log(posts); //cocatenacao de todos os posts
-        setSubmission(true);
-        console.log(submission);
+        formik.resetForm();
+        
     })
 
     .catch((error) => {
