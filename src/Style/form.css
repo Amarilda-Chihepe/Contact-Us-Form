@@ -1,0 +1,35 @@
+.header{
+    background-color: rgb(17, 199, 138);
+    padding: 15px 0 15px 10px;
+
+}
+
+.form{
+    background-color: rgb(238, 252, 247);;
+    width: 60%;
+    
+}
+
+.formulario{
+    padding-left: 20px;
+}
+
+textarea{
+    resize: none;
+    height: 100px;
+}
+
+#btn{
+    width: 200px;
+    font-size: 17px;
+}
+.col-form-label{
+    font-size: 17px;
+}
+
+.error{
+    color: red;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    font-size: 12px;  
+}
